@@ -56,7 +56,14 @@ val data: Map<String, Map<String, Map<String, Map<String, Set<Int>>>>> = mapOf(
 fun main() {
 
     // все пропущенные дома, в формате 'город, округ, район, улица, номера дома'
-
-
-
-}
+    for ((city, circles) in data) {
+        for ((circle, areas) in circles)
+            for ((area, streets) in areas) {
+                for ((street, numbers) in streets) {
+                    for (number in ((1..numbers.last()) - numbers)) {
+                        println("$city, $circle, $area, $street, $number")
+                    }
+                }
+            }
+        }
+    }
